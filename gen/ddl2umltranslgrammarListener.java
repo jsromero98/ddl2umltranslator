@@ -47,6 +47,96 @@ public interface ddl2umltranslgrammarListener extends ParseTreeListener {
 	 */
 	void exitCreateTableStatement(ddl2umltranslgrammarParser.CreateTableStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#createViewStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterCreateViewStatement(ddl2umltranslgrammarParser.CreateViewStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#createViewStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitCreateViewStatement(ddl2umltranslgrammarParser.CreateViewStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#sqlStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterSqlStatement(ddl2umltranslgrammarParser.SqlStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#sqlStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitSqlStatement(ddl2umltranslgrammarParser.SqlStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#exprand}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprand(ddl2umltranslgrammarParser.ExprandContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#exprand}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprand(ddl2umltranslgrammarParser.ExprandContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#expror}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpror(ddl2umltranslgrammarParser.ExprorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#expror}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpror(ddl2umltranslgrammarParser.ExprorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#compexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterCompexpr(ddl2umltranslgrammarParser.CompexprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#compexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitCompexpr(ddl2umltranslgrammarParser.CompexprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#arithexpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithexpr(ddl2umltranslgrammarParser.ArithexprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#arithexpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithexpr(ddl2umltranslgrammarParser.ArithexprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTerm(ddl2umltranslgrammarParser.TermContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTerm(ddl2umltranslgrammarParser.TermContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterFactor(ddl2umltranslgrammarParser.FactorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitFactor(ddl2umltranslgrammarParser.FactorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#atom}.
+	 * @param ctx the parse tree
+	 */
+	void enterAtom(ddl2umltranslgrammarParser.AtomContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#atom}.
+	 * @param ctx the parse tree
+	 */
+	void exitAtom(ddl2umltranslgrammarParser.AtomContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#alterTableStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -77,6 +167,16 @@ public interface ddl2umltranslgrammarListener extends ParseTreeListener {
 	 */
 	void exitCreateIndexStatement(ddl2umltranslgrammarParser.CreateIndexStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#createSequenceStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterCreateSequenceStatement(ddl2umltranslgrammarParser.CreateSequenceStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#createSequenceStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitCreateSequenceStatement(ddl2umltranslgrammarParser.CreateSequenceStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#dropIndexStatement}.
 	 * @param ctx the parse tree
 	 */
@@ -106,6 +206,16 @@ public interface ddl2umltranslgrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitColumnDefinition(ddl2umltranslgrammarParser.ColumnDefinitionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#foreignKeyDefiniton}.
+	 * @param ctx the parse tree
+	 */
+	void enterForeignKeyDefiniton(ddl2umltranslgrammarParser.ForeignKeyDefinitonContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#foreignKeyDefiniton}.
+	 * @param ctx the parse tree
+	 */
+	void exitForeignKeyDefiniton(ddl2umltranslgrammarParser.ForeignKeyDefinitonContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#constraint}.
 	 * @param ctx the parse tree
@@ -146,6 +256,16 @@ public interface ddl2umltranslgrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIndexName(ddl2umltranslgrammarParser.IndexNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#functionName}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionName(ddl2umltranslgrammarParser.FunctionNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link ddl2umltranslgrammarParser#functionName}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionName(ddl2umltranslgrammarParser.FunctionNameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ddl2umltranslgrammarParser#datatype}.
 	 * @param ctx the parse tree

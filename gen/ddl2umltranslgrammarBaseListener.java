@@ -64,6 +64,114 @@ public class ddl2umltranslgrammarBaseListener implements ddl2umltranslgrammarLis
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCreateViewStatement(ddl2umltranslgrammarParser.CreateViewStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCreateViewStatement(ddl2umltranslgrammarParser.CreateViewStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSqlStatement(ddl2umltranslgrammarParser.SqlStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSqlStatement(ddl2umltranslgrammarParser.SqlStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExprand(ddl2umltranslgrammarParser.ExprandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExprand(ddl2umltranslgrammarParser.ExprandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExpror(ddl2umltranslgrammarParser.ExprorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpror(ddl2umltranslgrammarParser.ExprorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCompexpr(ddl2umltranslgrammarParser.CompexprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCompexpr(ddl2umltranslgrammarParser.CompexprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArithexpr(ddl2umltranslgrammarParser.ArithexprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArithexpr(ddl2umltranslgrammarParser.ArithexprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTerm(ddl2umltranslgrammarParser.TermContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTerm(ddl2umltranslgrammarParser.TermContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFactor(ddl2umltranslgrammarParser.FactorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFactor(ddl2umltranslgrammarParser.FactorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAtom(ddl2umltranslgrammarParser.AtomContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAtom(ddl2umltranslgrammarParser.AtomContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAlterTableStatement(ddl2umltranslgrammarParser.AlterTableStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -100,6 +208,18 @@ public class ddl2umltranslgrammarBaseListener implements ddl2umltranslgrammarLis
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCreateSequenceStatement(ddl2umltranslgrammarParser.CreateSequenceStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCreateSequenceStatement(ddl2umltranslgrammarParser.CreateSequenceStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDropIndexStatement(ddl2umltranslgrammarParser.DropIndexStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -131,6 +251,18 @@ public class ddl2umltranslgrammarBaseListener implements ddl2umltranslgrammarLis
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitColumnDefinition(ddl2umltranslgrammarParser.ColumnDefinitionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterForeignKeyDefiniton(ddl2umltranslgrammarParser.ForeignKeyDefinitonContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitForeignKeyDefiniton(ddl2umltranslgrammarParser.ForeignKeyDefinitonContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -179,6 +311,18 @@ public class ddl2umltranslgrammarBaseListener implements ddl2umltranslgrammarLis
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIndexName(ddl2umltranslgrammarParser.IndexNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionName(ddl2umltranslgrammarParser.FunctionNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionName(ddl2umltranslgrammarParser.FunctionNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

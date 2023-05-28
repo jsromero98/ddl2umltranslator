@@ -17,6 +17,12 @@ public class Main {
             ddl2umltranslgrammarParser parser = new ddl2umltranslgrammarParser(tokens);
             ParseTree tree = parser.inicio(); // Iniciar el analisis sintáctico en la regla inicial: r
             System.out.println(tree.toStringTree(parser)); // imprime el arbol al estilo LISP
+
+            ParseTreeWalker walker = new ParseTreeWalker();
+
+            walker.walk(new ddl2umltrad(), tree);
+            System.out.println();
+
         } catch (Exception e){
             System.err.println("Error (Test): " + e);
         }
