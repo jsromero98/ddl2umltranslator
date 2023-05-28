@@ -1,30 +1,49 @@
 grammar ddl2umltranslgrammar;
 
-ddlStatement : createTableStatement | alterTableStatement | dropTableStatement | createIndexStatement | dropIndexStatement | LINE_COMMENT;
+inicio: block EOF
+;
 
-createTableStatement : CREATE TABLE tableName '(' columnDefinition (',' columnDefinition)* ')' ';';
+block           : ( ddlStatement (NEWLINE* | EOF ))*
+;
 
-alterTableStatement : ALTER TABLE tableName alterTableAction ';';
+ddlStatement : createTableStatement | alterTableStatement | dropTableStatement | createIndexStatement | dropIndexStatement | LINE_COMMENT
+;
 
-dropTableStatement : DROP TABLE tableName ';';
+createTableStatement : CREATE TABLE tableName '(' columnDefinition (',' columnDefinition)* ')' ';'
+;
 
-createIndexStatement : CREATE INDEX indexName ON tableName '(' columnName (',' columnName)* ')' ';';
+alterTableStatement : ALTER TABLE tableName alterTableAction ';'
+;
 
-dropIndexStatement : DROP INDEX indexName ';';
+dropTableStatement : DROP TABLE tableName ';'
+;
 
-alterTableAction : ADD columnName datatype | ALTER COLUMN columnName datatype | DROP COLUMN columnName;
+createIndexStatement : CREATE INDEX indexName ON tableName '(' columnName (',' columnName)* ')' ';'
+;
 
-columnDefinition : columnName datatype constraint?;
+dropIndexStatement : DROP INDEX indexName ';'
+;
 
-constraint : PRIMARY KEY | UNIQUE;
+alterTableAction : ADD columnName datatype | ALTER COLUMN columnName datatype | DROP COLUMN columnName
+;
 
-columnName : IDENTIFIER;
+columnDefinition : columnName datatype constraint?
+;
 
-tableName : IDENTIFIER;
+constraint : PRIMARY KEY | UNIQUE
+;
 
-indexName : IDENTIFIER;
+columnName : IDENTIFIER
+;
 
-datatype : DATATYPE;
+tableName : IDENTIFIER
+;
+
+indexName : IDENTIFIER
+;
+
+datatype : DATATYPE
+;
 
 CREATE : 'CREATE';
 ALTER : 'ALTER';
