@@ -1,7 +1,15 @@
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+
 public class ddl2umltrad extends ddl2umltranslgrammarBaseListener{
+    String translatedoutput = "@startuml \n";
+
+    
     @Override
     public void enterInicio(ddl2umltranslgrammarParser.InicioContext ctx) {
         super.enterInicio(ctx);
@@ -9,6 +17,24 @@ public class ddl2umltrad extends ddl2umltranslgrammarBaseListener{
 
     @Override
     public void exitInicio(ddl2umltranslgrammarParser.InicioContext ctx) {
+        translatedoutput = translatedoutput + " \n @enduml";
+        System.out.println(translatedoutput);
+
+        try {
+            File outdiag = new File("./output/outputdiagram.puml");
+            if (outdiag.createNewFile()) {
+                System.out.println("File created: " + outdiag.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+            FileWriter myWriter = new FileWriter("./output/outputdiagram.puml");
+            myWriter.write(translatedoutput);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
         super.exitInicio(ctx);
     }
 
@@ -24,7 +50,7 @@ public class ddl2umltrad extends ddl2umltranslgrammarBaseListener{
 
     @Override
     public void enterDdlStatement(ddl2umltranslgrammarParser.DdlStatementContext ctx) {
-        System.out.println(ctx.getText());
+        //System.out.println(ctx.getText());
         super.enterDdlStatement(ctx);
     }
 
@@ -35,6 +61,44 @@ public class ddl2umltrad extends ddl2umltranslgrammarBaseListener{
 
     @Override
     public void enterCreateTableStatement(ddl2umltranslgrammarParser.CreateTableStatementContext ctx) {
+        String translated = "";
+        translated = translated + "entity "+ctx.tableName().getText()+" { \n";
+        for (int i = 0; i < ctx.columnDefinition().size(); i++) {
+            translated = translated + "{field}";
+            if (ctx.columnDefinition(i).constraint().isEmpty()){
+                translated = translated + ctx.columnDefinition(i).columnName().getText();
+            } else {
+                boolean nameadded = false;
+                for (int j = 0; j < ctx.columnDefinition(i).constraint().size(); j++) {
+                    if (ctx.columnDefinition(i).constraint(j).NOT() != null && ctx.columnDefinition(i).constraint(j).NULL() != null){
+                        translated = translated + "* ";
+                    }
+                    if (ctx.columnDefinition(i).constraint(j).PRIMARY() != null) {
+                        translated = translated + "* ";
+                    }
+                    if (!nameadded) {
+                        translated = translated + ctx.columnDefinition(i).columnName().getText() + " " + ctx.columnDefinition(i).datatype().getText();
+                        nameadded = true;
+                    }
+                    if (ctx.columnDefinition(i).constraint(j).PRIMARY() != null){
+                        translated = translated + " << PK >>";
+                    }
+                    if (ctx.columnDefinition(i).constraint(j).UNIQUE() != null){
+                        translated = translated + " << unique >> ";
+                    }
+                    if (ctx.columnDefinition(i).constraint(j).DEFAULT() != null){
+                        translated = translated + " << default >> ";
+                    }
+                    if (ctx.columnDefinition(i).constraint(j).CT() != null){
+                        translated = translated + " << current_timestamp >> ";
+                    }
+                }
+            }
+            translated = translated + " \n";
+        }
+        translated= translated + "} \n \n";
+
+        translatedoutput = translatedoutput + translated;
         super.enterCreateTableStatement(ctx);
     }
 

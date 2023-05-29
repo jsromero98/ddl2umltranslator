@@ -1,0 +1,26 @@
+@startuml 
+entity users { 
+{field}* id INT << PK >> 
+{field}* username VARCHAR(50) 
+{field}* email VARCHAR(100) << unique >>  
+{field}* password VARCHAR(100) 
+} 
+ 
+entity posts { 
+{field}* id INT << PK >> 
+{field}user_id 
+{field}* title VARCHAR(100) 
+{field}content 
+{field}created_at TIMESTAMP << default >>  << current_timestamp >>  
+} 
+ 
+entity comments { 
+{field}* id INT << PK >> 
+{field}post_id 
+{field}user_id 
+{field}* content TEXT 
+{field}created_at TIMESTAMP << default >>  << current_timestamp >>  
+} 
+ 
+ 
+ @enduml
