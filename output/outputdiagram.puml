@@ -1,33 +1,43 @@
 @startuml 
 entity users { 
-{field}* id INT << PK >> 
+{field}* id INT << PK >> << unique >> 
 {field}* username VARCHAR(50) 
 {field}* email VARCHAR(100) << unique >>  
 {field}* password VARCHAR(100) 
 } 
  
+ 
 entity posts { 
-{field}* id INT << PK >> 
-{field}user_id 
+{field}* id INT << PK >> << unique >> 
+{field}user_id INT 
 {field}* title VARCHAR(100) 
-{field}content 
+{field}content TEXT 
 {field}created_at TIMESTAMP << default >>  << current_timestamp >>  
+{method} user_id INT <<FK>> 
 } 
+ 
+posts }o..|| users 
  
 entity comments { 
-{field}* id INT << PK >> 
-{field}post_id 
-{field}user_id 
+{field}* id INT << PK >> << unique >> 
+{field}post_id INT 
+{field}user_id INT 
 {field}* content TEXT 
 {field}created_at TIMESTAMP << default >>  << current_timestamp >>  
+{method} post_id INT <<FK>> 
+{method} user_id INT <<FK>> 
 } 
  
+comments }o..|| posts 
+comments }o..|| users 
+ 
 entity recent_posts << view >> { 
-{field} id 
-{field} title 
-{field} created_at 
+{field} id INT 
+{field} title VARCHAR(100) 
+{field} created_at TIMESTAMP 
+{method} created_at>=NOW()-INTERVAL'7days' 
 } 
  
  recent_posts --|> posts 
- 
+
  @enduml

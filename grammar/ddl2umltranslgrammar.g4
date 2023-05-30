@@ -39,7 +39,7 @@ factor          : (ADD|SUB) atom
                 | atom
 ;
 
-atom            : columnName | INT | DOUBLE | STRING | functionName
+atom            : columnName | INTEG | DOUBLE | STRING | functionName
                 | LPAREN exprand RPAREN
 ;
 
@@ -80,12 +80,13 @@ tableName : IDENTIFIER
 indexName : IDENTIFIER
 ;
 
-functionName : NOW LPAREN RPAREN | INTERVAL '\'' INT TIMEFRAME '\''
+functionName : NOW LPAREN RPAREN | INTERVAL '\'' INTEG TIMEFRAME '\''
 ;
 
-datatype : DATATYPE ( LPAREN INT RPAREN )?
+datatype : DATATYPE ( LPAREN INTEG RPAREN )?
 ;
 
+DATATYPE : 'INT' | 'VARCHAR' | 'BIGINT' | 'BINARY' | 'BLOB' | 'TEXT' | 'TIMESTAMP';
 WS              : [ \t\r\n]+ -> skip ;
 EQ              : '=' ;
 EE              : '==' ;
@@ -129,10 +130,9 @@ SEQUENCE : 'SEQUENCE' ;
 CT : 'CURRENT_TIMESTAMP' ;
 REFERENCES : 'REFERENCES' ;
 VIEW : 'VIEW';
-DATATYPE : 'INT' | 'VARCHAR' | 'BIGINT' | 'BINARY' | 'BLOB' | 'TEXT' | 'TIMESTAMP';
 IDENTIFIER : [a-zA-Z_][a-zA-Z0-9_]*;
 LINE_COMMENT    : '--' ~[\r\n\f]* ;
-INT             : [0-9]+;
+INTEG             : [0-9]+;
 DOUBLE          : [0-9]+( | [.][0-9]+);
 STRING          : '"' ~ ["\r\n]* '"' ;
 NEWLINE         : '\r'? '\n' (' ')*;
