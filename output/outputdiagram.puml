@@ -22,5 +22,12 @@ entity comments {
 {field}created_at TIMESTAMP << default >>  << current_timestamp >>  
 } 
  
+entity recent_posts << view >> { 
+{field} id 
+{field} title 
+{field} created_at 
+} 
+ 
+ recent_posts --|> posts 
  
  @enduml

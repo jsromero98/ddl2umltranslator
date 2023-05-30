@@ -109,6 +109,14 @@ public class ddl2umltrad extends ddl2umltranslgrammarBaseListener{
 
     @Override
     public void enterCreateViewStatement(ddl2umltranslgrammarParser.CreateViewStatementContext ctx) {
+        String translated = "";
+        translated = translated + "entity "+ctx.tableName().getText()+" << view >> { \n";
+        for (int i = 0; i < ctx.sqlStatement().columnName().size(); i++) {
+            translated = translated + "{field} " + ctx.sqlStatement().columnName(i).getText() + " \n";
+        }
+        translated= translated + "} \n \n";
+        translated = translated + " " + ctx.tableName().getText() +" --|> "+ctx.sqlStatement().tableName().getText()+" \n";
+        translatedoutput = translatedoutput + translated;
         super.enterCreateViewStatement(ctx);
     }
 
