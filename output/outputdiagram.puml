@@ -1,4 +1,5 @@
 @startuml 
+ !theme crt-amber 
 entity users { 
 {field}* id INT << PK >> << unique >> 
 {field}* username VARCHAR(50) 
@@ -39,5 +40,15 @@ entity recent_posts << view >> {
 } 
  
  recent_posts --|> posts 
+
+
+ package info { 
+entity tables{ 
+ {field} count:3
+}
+entity views{ 
+ {field} count:1
+}
+}
 
  @enduml

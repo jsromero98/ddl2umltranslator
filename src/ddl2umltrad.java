@@ -7,11 +7,18 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class ddl2umltrad extends ddl2umltranslgrammarBaseListener{
-    String translatedoutput = "@startuml \n";
+    String translatedoutput = "@startuml \n !theme crt-amber \n";
     HashMap <String,String> columntypes = new HashMap<String, String>();
+    int tablecount = 0;
+    int viewcount = 0;
 
     @Override
     public void exitInicio(ddl2umltranslgrammarParser.InicioContext ctx) {
+        translatedoutput = translatedoutput + "\n";
+        translatedoutput = translatedoutput + "\n package info { \n";
+        translatedoutput = translatedoutput + "entity tables{ \n {field} count:" + tablecount + "\n}\n";
+        translatedoutput = translatedoutput + "entity views{ \n {field} count:" + viewcount + "\n}\n";
+        translatedoutput = translatedoutput + "}\n";
         translatedoutput = translatedoutput + "\n @enduml";
         //System.out.println(translatedoutput);
 
@@ -82,6 +89,7 @@ public class ddl2umltrad extends ddl2umltranslgrammarBaseListener{
         }
         translated= translated + " \n";
         translatedoutput = translatedoutput + translated;
+        tablecount ++;
         super.enterCreateTableStatement(ctx);
     }
 
@@ -97,6 +105,7 @@ public class ddl2umltrad extends ddl2umltranslgrammarBaseListener{
         translated= translated + "} \n \n";
         translated = translated + " " + ctx.tableName().getText() +" --|> "+ctx.sqlStatement().tableName().getText()+" \n";
         translatedoutput = translatedoutput + translated;
+        viewcount ++;
         super.enterCreateViewStatement(ctx);
     }
 

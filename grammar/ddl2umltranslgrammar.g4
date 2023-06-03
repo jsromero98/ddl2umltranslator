@@ -71,7 +71,7 @@ foreignKeyDefiniton : FOREIGN KEY LPAREN columnName RPAREN REFERENCES tableName 
 constraint : PRIMARY KEY | UNIQUE | NOT NULL | DEFAULT | CT
 ;
 
-columnName : IDENTIFIER
+columnName : ('`')? IDENTIFIER ('`')?
 ;
 
 tableName : IDENTIFIER
