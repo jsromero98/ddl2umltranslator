@@ -1,0 +1,25 @@
+@startuml
+
+rectangle DDL << Data Definition Language >>
+
+rectangle ANTLR4
+
+DDL ---|> ANTLR4
+
+rectangle listeners
+
+ANTLR4 ---|> listeners
+
+rectangle PlantUML << Universal Modeling Language >>
+
+listeners ---|> PlantUML
+
+rectangle PlantUML_Extension
+
+PlantUML ---|> PlantUML_Extension
+
+rectangle IMG
+
+PlantUML_Extension ---|> IMG
+
+@enduml

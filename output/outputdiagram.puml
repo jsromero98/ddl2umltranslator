@@ -5,6 +5,8 @@ entity users {
 {field}* username VARCHAR(50) 
 {field}* email VARCHAR(100) << unique >>  
 {field}* password VARCHAR(100) 
+
+ warnings: 
 } 
  
  
@@ -15,6 +17,8 @@ entity posts {
 {field}content TEXT 
 {field}created_at TIMESTAMP << default >>  << current_timestamp >>  
 {method} user_id INT <<FK>> 
+
+ warnings: 
 } 
  
 posts }o..|| users 
@@ -27,10 +31,45 @@ entity comments {
 {field}created_at TIMESTAMP << default >>  << current_timestamp >>  
 {method} post_id INT <<FK>> 
 {method} user_id INT <<FK>> 
+
+ warnings: 
 } 
  
 comments }o..|| posts 
 comments }o..|| users 
+ 
+entity repeated { 
+{field}* id INT << PK >> << unique >> 
+{field}bookname VARCHAR(100) 
+{field}bookname TEXT 
+{field}author INT 
+
+ warnings: 
+Possible presence of repeated columns 
+} 
+ 
+ 
+entity noprimkey { 
+{field}id INT 
+{field}listingname VARCHAR(100) 
+{field}prices INT 
+
+ warnings: 
+Posible non atomic values stored on column prices 
+No primary key defined. 
+} 
+ 
+ 
+entity noforekey { 
+{field}* id INT << PK >> << unique >> 
+{field}role VARCHAR(100) 
+{field}pay INT 
+
+ warnings: 
+Foreign key card_id not defined in other tables. 
+Foreign key card_id not in defined columns. 
+} 
+ 
  
 entity recent_posts << view >> { 
 {field} id INT 
@@ -44,7 +83,7 @@ entity recent_posts << view >> {
 
  package info { 
 entity tables{ 
- {field} count:3
+ {field} count:6
 }
 entity views{ 
  {field} count:1

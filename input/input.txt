@@ -25,6 +25,26 @@ CREATE TABLE comments (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE TABLE repeated (
+    id INT PRIMARY KEY,
+    bookname VARCHAR(100),
+    bookname TEXT,
+    author INT
+);
+
+CREATE TABLE noprimkey (
+    id INT,
+    listingname VARCHAR(100),
+    prices INT
+);
+
+CREATE TABLE noforekey (
+    id INT PRIMARY KEY,
+    role VARCHAR(100),
+    pay INT,
+    FOREIGN KEY (card_id) REFERENCES cards(id)
+);
+
 -- Create indexes
 CREATE INDEX idx_posts_user_id ON posts(user_id);
 CREATE INDEX idx_comments_post_id ON comments(post_id);
